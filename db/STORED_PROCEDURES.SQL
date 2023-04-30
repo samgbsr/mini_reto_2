@@ -1,5 +1,5 @@
 --Procedures base de datos para mini-reto 2.
---Todos los SP están en el mismo orden que los endpoints como documentados en swagger. Cada endpoint llama unS P en la DB.
+--Todos los SP están en el mismo orden que los endpoints como documentados en swagger. Cada endpoint llama un SP en la DB.
 
 --Bands
 DELIMITER &&
