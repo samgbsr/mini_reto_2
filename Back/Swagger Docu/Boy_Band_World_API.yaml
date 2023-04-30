@@ -1,7 +1,7 @@
 #Pegar esto en editor de Swagger para desplegar Documentación del API
 openapi: 3.0.0
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: Boy Band World API
 tags:
 - name: Bands
@@ -57,6 +57,8 @@ paths:
                       description: URL to the video for the band's highest charting song
         '404':
           description: Bands not found
+        '500':
+          description: Internal server error
   /bands/{bandId}:
     get:
       summary: Get information for a specific band
@@ -107,6 +109,8 @@ paths:
                       description: URL to the video for the band's highest charting song
         '404':
           description: Band not found
+        '500':
+          description: Internal server error
   /boys:
     get:
       summary: Get a list of all boys
@@ -171,6 +175,8 @@ paths:
                       description: Instrument played by the boy
         '404':
           description: Boys not found
+        '500':
+          description: Internal server error
   /boys/{boyId}:
     get:
       summary: Get information for a specific boy
@@ -242,6 +248,8 @@ paths:
                       description: Instrument played by the boy
         '404':
           description: Boy not found
+        '500':
+          description: Internal server error
   /playlist:
     post:
       summary: Create a new playlist
@@ -261,9 +269,11 @@ paths:
         '201':
           description: Playlist created successfully
         '400':
-          description: Bad request
-        '404':
-          description: User not found
+          description: Playlist name is required
+        '500':
+          description: Internal server error
+        '501':
+          description: Failed to create playlist
   /playlist/{playlistId}:
     delete:
       summary: Delete a playlist by ID
@@ -282,6 +292,8 @@ paths:
           description: Playlist deleted successfully
         '404':
           description: Playlist not found
+        '500':
+          description: Internal server error
     patch:
         summary: Update the name of a playlist
         tags:
@@ -309,9 +321,11 @@ paths:
           '200':
             description: Playlist updated successfully
           '400':
-            description: Bad request
+            description: New playlist name required
           '404':
             description: Playlist not found
+          '500':
+            description: Internal server error
     get:
       summary: Get data for a specific playlist
       tags:
@@ -356,6 +370,8 @@ paths:
                     example: 2
         '404':
           description: Playlist not found
+        '500':
+          description: Internal server error
   /playlist/{playlistId}/{bandId}:
       post:
         summary: Add a band to a playlist
@@ -378,10 +394,10 @@ paths:
         responses:
           '201':
             description: Band added to playlist successfully
-          '400':
-            description: Bad request
           '404':
             description: Playlist or band not found
+          '500':
+            description: Internal server error
       delete:
         summary: Remove a band from a playlist
         tags:
@@ -401,12 +417,12 @@ paths:
             schema:
               type: integer
         responses:
-          '200':
+          '204':
             description: Band removed from list successfully
-          '400':
-            description: Bad request
+          '500':
+            description: Internal server error
           '404':
-            description: Boys list or band not found
+            description: Playlist or band not found
   
   /boyslist:
     post:
@@ -426,10 +442,12 @@ paths:
       responses:
         '201':
           description: List of boys created successfully
+        '500':
+            description: Internal server error
         '400':
-          description: Bad request
-        '404':
-          description: User not found
+          description: List name is required
+        '501':
+          description: Failed to create list
   /boyslist/{listId}:
     put:
       summary: Replace a boy in a list of boys
@@ -462,9 +480,11 @@ paths:
         '200':
           description: Boy replaced successfully
         '400':
-          description: Bad request
+          description: Old and new boy IDs are required
         '404':
           description: Boys list or old boy not found
+        '500':
+          description: Internal server error
     delete:
       summary: Delete a list of boys by ID
       tags:
@@ -482,6 +502,8 @@ paths:
           description: Boys list deleted successfully
         '404':
           description: Boys list not found
+        '500':
+          description: Internal server error
     patch:
       summary: Update a boys list name
       tags:
@@ -509,9 +531,11 @@ paths:
         '200':
           description: Boys list name updated successfully
         '400':
-          description: Bad request
+          description: New list name is required
         '404':
-          description: Boys list not found
+          description: List not found
+        '500':
+          description: Internal server error
     get:
       summary: Get data for a specific list of boys
       tags:
@@ -546,6 +570,8 @@ paths:
                     example: Nick Jonas
         '404':
           description: Boys list not found
+        '500':
+          description: Internal server error
   /boyslist/{listId}/{boyId}:
     delete:
       summary: Remove a boy from a list
@@ -572,6 +598,8 @@ paths:
           description: Bad request
         '404':
           description: Boys list or boy not found
+        '500':
+          description: Internal server error
     post:
         summary: Add a boy to a list of boys
         tags:
@@ -593,7 +621,7 @@ paths:
         responses:
           '201':
             description: Boy added to list successfully
-          '400':
-            description: Bad request
           '404':
             description: Boys list or boy not found
+          '500':
+            description: Internal server error
