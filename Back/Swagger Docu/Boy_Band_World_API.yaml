@@ -429,7 +429,7 @@ paths:
       summary: Create a new list of boys
       tags:
       - Boyslist
-      description: Returns all info on thr list with `listId`.
+      description: Creates a new list with the specified name.
       requestBody:
         required: true
         content:
