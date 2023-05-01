@@ -1,0 +1,146 @@
+/* CSS styles */
+
+.text{
+    color:rgb(27, 4, 54);
+}
+
+/* Permite el Scroll de la Página */
+body {
+  padding-top: 100px;
+  z-index: 3;
+}
+
+/*Implementacion de espacios del menú y la main section */
+.main-section {
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
+  z-index: 4;
+  margin-left: 2%;
+  margin-right: 2%;
+  }
+  
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Arriba de la sección principal */
+  }
+  
+  .logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .menu-icon {
+    cursor: pointer;
+    display: none;
+    font-size: 24px;
+  }
+  
+  nav.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav.menu a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px 20px;
+  }
+  
+  nav.menu a:hover {
+    background-color: #ddd;
+    color: #5937b8;
+  }
+  
+  .active {
+    background-color: #8294C4;
+    color: white;
+  }
+
+
+/* Animación del Globo en la Página Principal*/
+.globe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    animation: rotate 10s linear infinite;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  } 100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Estilos para el footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+footer p {
+  font-size: 14px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #fff;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* Tabla Estilos*/
+table {
+  border-collapse: collapse;
+  width: 90%;
+  border: 1px solid black;
+  padding: 5px;
+
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #ecc7c7;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fffeab;
+}
