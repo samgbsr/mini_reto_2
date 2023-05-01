@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1-0">
+    <title>Boy Band World</title>
+    <!--Javascript -->
+    <script type="text/javascript" src="index.js"></script>
+    <!--CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!--Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- AJAX Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="papaparse.min.js"></script>
+    <!-- Slick-Sluder-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Importar Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        body {background-color: #DBDFEA; overflow: hidden;
+        }
+        h1 {color: rgb(26, 25, 25); size: 12; font-family:'Courier New', Courier, monospace; font-weight: bold;}
+        h4 {color:rgb(10, 2, 39); font-family: 'Courier New', Courier, monospace; align-items: left;}
+        p {color: rgb(4, 44, 42); size: 30; font-family: 'Courier New', Courier, monospace;}
+    </style>  
+</head>
+<body>
+    <!-- Menú Para Poder Moverse a Las Distintas Páginas -->
+    <header>
+        <div class="logo">
+            <a> </a>
+        </div>
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav class="menu">
+            <a href="index.html">P&aacutegina Principal</a>
+            <a class="active" href="playlistGenerator.html">Conoce Diferentes Bandas</a>
+            <a href="crearBoyBand.html">Crea tu Boy Band</a>
+            <a href="https://github.com/samgbsr/mini_reto_2/tree/main/db">Visita Nuestro Github</a>
+        </nav>
+    </header>
+
+    <!-- Inicio de la página, como el body/cuerpo -->
+    <main class="main-section">
+        <div style="text-align: center;">
+            <h1 id="the-title">Conoce Diferentes Bandas</h><br><br>
+            <h4>
+            <table id="bands-table">
+                <thead>
+                    <tr>
+                    <th>Band</th>
+                    <th>Highest Song</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th>NSYNC</th> <th>It's Gonna Be Me</th></tr>
+                    <tr>	<th>112</th>	<th>Peaches And Cream</th>		</tr>
+                    <tr>	<th>2gether</th>	<th>The Hardest Part of Breaking Up</th>		</tr>
+                    <tr>	<th>5 Seconds of Summer</th>	<th>Amnesia</th>		</tr>
+                    <tr>	<th>5ive</th>	<th>When The Lights Go Out</th>		</tr>
+                    <tr>	<th>98 Degrees</th>	<th>Give me Just One Night</th>		</tr>
+                    <tr>	<th>All-4-One</th>	<th>I Swear</th>		</tr>
+                    <tr>	<th>Aventura</th>	<th>Ella Y Yo</th>		</tr>
+                    <tr>	<th>Az Yet</th>	<th>Hard to Say I'm Sorry (ft. Peter Cetera)</th>		</tr>
+                    <tr>	<th>B2K</th>	<th>Bump, Bump, Bump (ft. P. Diddy)</th>		</tr>
+                    <tr>	<th>Backstreet Boys</th>	<th>Quit Playing Games with my Heart</th>		</tr>
+                    <tr>	<th>BBMak</th>	<th>Back Here</th>		</tr>
+                    <tr>	<th>Bell Biv DeVoe</th>	<th>Poison</th>		</tr>
+                    <tr>	<th>Big Time Rush</th>	<th>Boyfriend (ft. Snoop Dogg)</th>		</tr>
+                    <tr>	<th>Blackstreet</th>	<th>No Diggity (ft. Dr. Dre)</th>		</tr>
+                    <tr>	<th>Boyz II Men</th>	<th>End of the Road</th>		</tr>
+                    <tr>	<th>Brother Beyond</th>	<th>The Girl I Used to Know</th>		</tr>
+                    <tr>	<th>BTS</th>	<th>DNA</th>		</tr>
+                    <tr>	<th>Color Me Badd</th>	<th>I Adore Mi Amor</th>		</tr>
+                    <tr>	<th>Day26</th>	<th>Got Me Going</th>		</tr>
+                    <tr>	<th>Guys Next Door</th>	<th>I've Been Waiting For You</th>		</tr>
+                    <tr>	<th>Hanson</th>	<th>MMMBop</th>		</tr>
+                    <tr>	<th>Hi-Five</th>	<th>I Like The Way</th>		</tr>
+                    <tr>	<th>Ideal</th>	<th>Get Gone</th>		</tr>
+                    <tr>	<th>Immature</th>	<th>Never Lie</th>		</tr>
+                    <tr>	<th>IMx</th>	<th>Stay The Night</th>		</tr>
+                    <tr>	<th>Jagged Edge</th>	<th>Where The Party At</th>		</tr>
+                    <tr>	<th>Jodeci</th>	<th>Lately</th>		</tr>
+                    <tr>	<th>Jonas Brothers</th>	<th>Burnin' Up</th>		</tr>
+                    <tr>	<th>LFO</th>	<th>Summer Girls</th>		</tr>
+                    <tr>	<th>Menudo</th>	<th>Hold Me</th>		</tr>
+                    <tr>	<th>Mindless Behavior</th>	<th>Mrs. Right</th>		</tr>
+                    <tr>	<th>Musical Youth</th>	<th>Pass the Dutchie</th>		</tr>
+                    <tr>	<th>New Edition</th>	<th>Hit Me Off</th>		</tr>
+                    <tr>	<th>New Kids On The Block</th>	<th>I'll Be Loving You (Forever)</th>		</tr>
+                    <tr>	<th>Nine Days</th>	<th>Absolutely (Story of a Girl)</th>		</tr>
+                    <tr>	<th>No Mercy</th>	<th>Where Do You Go</th>		</tr>
+                    <tr>	<th>Nu Flavor</th>	<th>Heaven</th>		</tr>
+                    <tr>	<th>O-Town</th>	<th>All or Nothing</th>		</tr>
+                    <tr>	<th>One Direction</th>	<th>Best Song Ever</th>		</tr>
+                    <tr>	<th>Perfect Gentlemen</th>	<th>Ooh La La</th>		</tr>
+                    <tr>	<th>Playa</th>	<th>Cheers 2 U</th>		</tr>
+                    <tr>	<th>Shai</th>	<th>If I Ever Fall in Love</th>		</tr>
+                    <tr>	<th>SILK</th>	<th>Freak Me</th>		</tr>
+                    <tr>	<th>Son by Four</th>	<th>Purest of Pain (A Puro Dolor)</th>		</tr>
+                    <tr>	<th>Soul for Real</th>	<th>Candy Rain</th>		</tr>
+                    <tr>	<th>soulDecision</th>	<th>Faded</th>		</tr>
+                    <tr>	<th>Take That</th>	<th>Back for Good</th>		</tr>
+                    <tr>	<th>The Boys</th>	<th>Dial My Heart</th>		</tr>
+                    <tr>	<th>The Click Five</th>	<th>Just The Girl</th>		</tr>
+                    <tr>	<th>The Wanted</th>	<th>Glad You Came</th>		</tr>
+                    <tr>	<th>Troop</th>	<th>All I Do Is Think Of You</th>		</tr>
+                    <tr>	<th>U.N.V.</th>	<th>Something's Goin' On</th>		</tr>
+                    <tr>	<th>Westlife</th>	<th>Swear it Again</th>		</tr>
+                    <tr>	<th>Youngstown</th>	<th>I'll Be Your Everything</th>		</tr>
+
+                </tbody>
+            </table></h4>
+            <script src="index.js"></script>
+        </div>
+          
+    </main>
+    <footer>
+        <p>Derechos de Autor Reservados a Fernanda Romo & Samuel Garc&iacute;a, así como al Instituto Tecnol&oacute;gico y de Estudios Superiores de Monterrey como parte del MiniProyecto 2 para la materia con clave TC2005B.402.</p>
+    </footer>
+</body>
+</html>
