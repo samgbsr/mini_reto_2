@@ -1,0 +1,627 @@
+#Pegar esto en editor de Swagger para desplegar Documentación del API
+openapi: 3.0.0
+info:
+  version: 1.0.1
+  title: Boy Band World API
+tags:
+- name: Bands
+  description: Endpoints for retrieving info on bands
+- name: Boys
+  description: Endpoints for managing and recieving information about boy band members.
+- name: Playlist
+  description: Endpoints for managing band playlists. They can contain the top hit from any band.
+- name: Boyslist
+  description: Create your dream boy band with members from the top bands since 1980.
+
+paths:
+  /bands:
+    get:
+      summary: Get a list of all bands
+      tags:
+      - Bands
+      description: Returns the information for all bands on the DB.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    band_id:
+                      type: integer
+                      description: ID of the band
+                    band:
+                      type: string
+                      description: Name of the band
+                    highest_pos:
+                      type: integer
+                      description: Highest position on the charts
+                    highest_pos_date:
+                      type: string
+                      format: date
+                      description: Date when the band reached their highest position on the charts
+                    highest_song:
+                      type: string
+                      description: Name of the band's highest charting song
+                    danceSpeed:
+                      type: string
+                      description: Speed of the band's dance moves
+                    featuring_artist:
+                      type: string
+                      description: Name of any artists featured on the band's songs
+                    highest_song_vid:
+                      type: string
+                      description: URL to the video for the band's highest charting song
+        '404':
+          description: Bands not found
+        '500':
+          description: Internal server error
+  /bands/{bandId}:
+    get:
+      summary: Get information for a specific band
+      tags:
+      - Bands
+      description: Returns the information for a band specified by the `bandId` parameter
+      parameters:
+        - name: bandId
+          in: path
+          description: ID of the band to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    band_id:
+                      type: integer
+                      description: ID of the band
+                    band:
+                      type: string
+                      description: Name of the band
+                    highest_pos:
+                      type: integer
+                      description: Highest position on the charts
+                    highest_pos_date:
+                      type: string
+                      format: date
+                      description: Date when the band reached their highest position on the charts
+                    highest_song:
+                      type: string
+                      description: Name of the band's highest charting song
+                    danceSpeed:
+                      type: string
+                      description: Speed of the band's dance moves
+                    featuring_artist:
+                      type: string
+                      description: Name of any artists featured on the band's songs
+                    highest_song_vid:
+                      type: string
+                      description: URL to the video for the band's highest charting song
+        '404':
+          description: Band not found
+        '500':
+          description: Internal server error
+  /boys:
+    get:
+      summary: Get a list of all boys
+      tags:
+      - Boys
+      description: Returns the information for all boy band members on the DB.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    boy_id:
+                      type: integer
+                      description: ID of the boy
+                    band_id:
+                      type: integer
+                      description: ID of the boy's band
+                    name:
+                      type: string
+                      description: Name of the boy
+                    dob:
+                      type: string
+                      format: date
+                      description: Date of birth of the boy
+                    hair_color:
+                      type: string
+                      description: Hair color of the boy
+                    hair_frosted:
+                      type: string
+                      description: Whether the boy has frosted hair or not
+                    hair_length:
+                      type: string
+                      description: Length of the boy's hair
+                    hair_style:
+                      type: string
+                      description: Style of the boy's hair
+                    eyes:
+                      type: string
+                      description: Color of the boy's eyes
+                    facial_hair:
+                      type: string
+                      description: Type of facial hair the boy has
+                    accessories:
+                      type: string
+                      description: Accessories worn by the boy
+                    top_style:
+                      type: string
+                      description: Style of the boy's top
+                    bottom_style:
+                      type: string
+                      description: Style of the boy's bottom
+                    height:
+                      type: integer
+                      description: Height of the boy in inches
+                    instrument:
+                      type: string
+                      description: Instrument played by the boy
+        '404':
+          description: Boys not found
+        '500':
+          description: Internal server error
+  /boys/{boyId}:
+    get:
+      summary: Get information for a specific boy
+      tags:
+      - Boys
+      description: Returns the information for a boy with the specific `boyId`.
+      parameters:
+        - name: boyId
+          in: path
+          description: ID of the boy to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    boy_id:
+                      type: integer
+                      description: ID of the boy
+                    band_id:
+                      type: integer
+                      description: ID of the boy's band
+                    name:
+                      type: string
+                      description: Name of the boy
+                    dob:
+                      type: string
+                      format: date
+                      description: Date of birth of the boy
+                    hair_color:
+                      type: string
+                      description: Hair color of the boy
+                    hair_frosted:
+                      type: string
+                      description: Whether the boy has frosted hair or not
+                    hair_length:
+                      type: string
+                      description: Length of the boy's hair
+                    hair_style:
+                      type: string
+                      description: Style of the boy's hair
+                    eyes:
+                      type: string
+                      description: Color of the boy's eyes
+                    facial_hair:
+                      type: string
+                      description: Type of facial hair the boy has
+                    accessories:
+                      type: string
+                      description: Accessories worn by the boy
+                    top_style:
+                      type: string
+                      description: Style of the boy's top
+                    bottom_style:
+                      type: string
+                      description: Style of the boy's bottom
+                    height:
+                      type: integer
+                      description: Height of the boy in inches
+                    instrument:
+                      type: string
+                      description: Instrument played by the boy
+        '404':
+          description: Boy not found
+        '500':
+          description: Internal server error
+  /playlist:
+    post:
+      summary: Create a new playlist
+      tags:
+      - Playlist
+      description: Creates a new empty playlist with the specified name.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                playlist_name:
+                  type: string
+      responses:
+        '201':
+          description: Playlist created successfully
+        '400':
+          description: Playlist name is required
+        '500':
+          description: Internal server error
+        '501':
+          description: Failed to create playlist
+  /playlist/{playlistId}:
+    delete:
+      summary: Delete a playlist by ID
+      tags:
+      - Playlist
+      description: Deletes the playlist with the specified `playlistId`.
+      parameters:
+        - name: playlistId
+          in: path
+          description: ID of the playlist to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Playlist deleted successfully
+        '404':
+          description: Playlist not found
+        '500':
+          description: Internal server error
+    patch:
+        summary: Update the name of a playlist
+        tags:
+        - Playlist
+        description: Changes the name of the playlist with `playlistId` to new value.
+        parameters:
+          - name: playlistId
+            in: path
+            description: ID of the playlist to update
+            required: true
+            schema:
+              type: integer
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: New name for the playlist
+                    example: My new playlist
+        responses:
+          '200':
+            description: Playlist updated successfully
+          '400':
+            description: New playlist name required
+          '404':
+            description: Playlist not found
+          '500':
+            description: Internal server error
+    get:
+      summary: Get data for a specific playlist
+      tags:
+      - Playlist
+      description: Returns all data for the playlist with the specified `playlistId`.
+      parameters:
+        - name: playlistId
+          in: path
+          description: ID of the playlist to get data for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Playlist data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  playlistId:
+                    type: integer
+                    description: ID of the playlist
+                    example: 123
+                  name:
+                    type: string
+                    description: Name of the playlist
+                    example: My Playlist
+                  band_Names:
+                    type: string
+                    description: List of bands in the playlist
+                  youtube_links:
+                    type: string
+                    description: List of links to band songs seperated by comma.
+                  band_names:
+                    type: string
+                    description: List of band names in playlist seperated by comma.
+                    example: One direction, Backstreet boys
+                  num_bands: 
+                    type: integer
+                    description: Number of bands in the playlist.
+                    example: 2
+        '404':
+          description: Playlist not found
+        '500':
+          description: Internal server error
+  /playlist/{playlistId}/{bandId}:
+      post:
+        summary: Add a band to a playlist
+        tags:
+        - Playlist
+        description: Adds a band (and consequently their top hit) with the specified `bandId` to the playlist with `playlistId`.
+        parameters:
+          - name: playlistId
+            in: path
+            description: ID of the playlist to add the band to
+            required: true
+            schema:
+              type: integer
+          - name: bandId
+            in: path
+            description: ID of the band to add to the playlist
+            required: true
+            schema:
+              type: integer
+        responses:
+          '201':
+            description: Band added to playlist successfully
+          '404':
+            description: Playlist or band not found
+          '500':
+            description: Internal server error
+      delete:
+        summary: Remove a band from a playlist
+        tags:
+        - Playlist
+        description: Removes a band with `bandId` from the playlist with the specified `playlistId`.
+        parameters:
+          - name: playlistId
+            in: path
+            description: ID of the playlistlist to remove the band from
+            required: true
+            schema:
+              type: integer
+          - name: bandId
+            in: path
+            description: ID of the band to remove from the list
+            required: true
+            schema:
+              type: integer
+        responses:
+          '204':
+            description: Band removed from list successfully
+          '500':
+            description: Internal server error
+          '404':
+            description: Playlist or band not found
+  
+  /boyslist:
+    post:
+      summary: Create a new list of boys
+      tags:
+      - Boyslist
+      description: Creates a new list with the specified name.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                list_name:
+                  type: string
+      responses:
+        '201':
+          description: List of boys created successfully
+        '500':
+            description: Internal server error
+        '400':
+          description: List name is required
+        '501':
+          description: Failed to create list
+  /boyslist/{listId}:
+    put:
+      summary: Replace a boy in a list of boys
+      tags:
+      - Boyslist
+      description: Replaces a boy on the list with `listId` to a new one with different Id value.
+      parameters:
+        - name: listId
+          in: path
+          description: ID of the list to replace the boy in
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                oldBoyId:
+                  type: integer
+                  description: ID of the old boy to replace
+                  example: 123
+                newBoyId:
+                  type: integer
+                  description: ID of the new boy to replace the old boy
+                  example: 456
+      responses:
+        '200':
+          description: Boy replaced successfully
+        '400':
+          description: Old and new boy IDs are required
+        '404':
+          description: Boys list or old boy not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete a list of boys by ID
+      tags:
+      - Boyslist
+      description: Deletes a list with specified `listId` value.
+      parameters:
+        - name: listId
+          in: path
+          description: ID of the list to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Boys list deleted successfully
+        '404':
+          description: Boys list not found
+        '500':
+          description: Internal server error
+    patch:
+      summary: Update a boys list name
+      tags:
+      - Boyslist
+      description: Update the name of a boys list identified by `listId`.
+      parameters:
+        - name: listId
+          in: path
+          description: ID of the list to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: New name for the boys list
+                  example: My Updated Boys List
+      responses:
+        '200':
+          description: Boys list name updated successfully
+        '400':
+          description: New list name is required
+        '404':
+          description: List not found
+        '500':
+          description: Internal server error
+    get:
+      summary: Get data for a specific list of boys
+      tags:
+      - Boyslist
+      description: Returns all data from a list with specified `listId`.
+      parameters:
+        - name: listId
+          in: path
+          description: ID of the list to get data for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Boys list data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list_name:
+                    type: string
+                    description: Name
+                    example: List
+                  boy_id:
+                    type: integer
+                    description: Id of a boy in the list
+                    example: 23
+                  name:
+                    type: string
+                    description: Name of the Boy
+                    example: Nick Jonas
+        '404':
+          description: Boys list not found
+        '500':
+          description: Internal server error
+  /boyslist/{listId}/{boyId}:
+    delete:
+      summary: Remove a boy from a list
+      tags:
+      - Boyslist
+      description: Removes a boy with specified `boyId` from the list with specified `listId`. 
+      parameters:
+        - name: listId
+          in: path
+          description: ID of the list to remove the boy from
+          required: true
+          schema:
+            type: integer
+        - name: boyId
+          in: path
+          description: ID of the boy to remove from the list
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Boy removed successfully
+        '400':
+          description: Bad request
+        '404':
+          description: Boys list or boy not found
+        '500':
+          description: Internal server error
+    post:
+        summary: Add a boy to a list of boys
+        tags:
+        - Boyslist
+        description: Adds a boy with specified `boyId` from the list with specified `listId`. 
+        parameters:
+          - name: listId
+            in: path
+            description: ID of the list to add the boy to
+            required: true
+            schema:
+              type: integer
+          - name: boyId
+            in: path
+            description: ID of the boy to add to the list
+            required: true
+            schema:
+              type: integer
+        responses:
+          '201':
+            description: Boy added to list successfully
+          '404':
+            description: Boys list or boy not found
+          '500':
+            description: Internal server error
